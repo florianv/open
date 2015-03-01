@@ -16,6 +16,7 @@
         "symfony/console": "~2.3",
         "symfony/process": "~2.3"
     },
+    "bin": ["bin/open"],
     "autoload": {
         "psr-4": {
             "Open\\": "src"
