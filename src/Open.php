@@ -36,6 +36,7 @@ class Open
                 break;
 
             case 'Windows':
+            case 'Windows NT':
                 $command = null === $app ? 'start ""' : sprintf('start "" %s', escapeshellarg($app));
                 break;
 
