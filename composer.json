@@ -1,5 +1,5 @@
 {
-    "name": "florianv/open",
+    "name": "likesistemas/open",
     "type": "library",
     "description": "Opens a file or URL in PHP",
     "keywords": ["open", "file", "url", "browser"],
