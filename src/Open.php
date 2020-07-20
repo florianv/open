@@ -11,6 +11,7 @@
 
 namespace Open;
 
+use RuntimeException;
 use Symfony\Component\Process\Process;
 
 /**
@@ -26,7 +27,7 @@ class Open
      * @param string      $path The path to open
      * @param string|null $app  The application name
      *
-     * @throws \RuntimeException If the process failed
+     * @throws RuntimeException If the process failed
      */
     public static function open($path, $app = null)
     {
@@ -36,6 +37,7 @@ class Open
                 break;
 
             case 'Windows':
+            case 'Windows NT':
                 $command = null === $app ? 'start ""' : sprintf('start "" %s', escapeshellarg($app));
                 break;
 
@@ -44,11 +46,12 @@ class Open
                 break;
         }
 
-        $process = new Process(sprintf('%s %s', $command, escapeshellarg($path)));
+        $command = explode(" ", sprintf('%s %s', $command, $path));
+        $process = new Process($command);
         $process->run();
 
         if (!$process->isSuccessful()) {
-            throw new \RuntimeException($process->getErrorOutput());
+            throw new RuntimeException($process->getErrorOutput());
         }
     }
 }

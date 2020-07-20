@@ -3,23 +3,19 @@
     "type": "library",
     "description": "Opens a file or URL in PHP",
     "keywords": ["open", "file", "url", "browser"],
-    "homepage": "https://github.com/florianv/open",
+    "homepage": "https://github.com/likesistemas/open",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Florian Voutzinos",
-            "email": "florian@voutzinos.com",
-            "homepage": "http://florian.voutzinos.com"
-        }
-    ],
     "require": {
-        "symfony/console": "~2.3|~3.0|~4.0",
-        "symfony/process": "~2.3|~3.0|~4.0"
+        "symfony/console": "~2.3|~3.0|~4.0|~5.0",
+        "symfony/process": "~2.3|~3.0|~4.0|~5.0"
     },
     "bin": ["bin/open"],
     "autoload": {
         "psr-4": {
             "Open\\": "src"
         }
+    },
+    "scripts": {
+        "open": "@php bin/open http://likesistemas.com.br"
     }
 }
